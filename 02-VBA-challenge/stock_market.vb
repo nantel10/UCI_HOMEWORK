@@ -24,7 +24,8 @@ stockvolume = 0
 
 For Each ws in Worksheets
 
-' Determine the Last Row
+
+'Determine the Last Row
 LastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
 
     For i = 2 To int(LastRow - 1)   
