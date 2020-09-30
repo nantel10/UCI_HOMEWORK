@@ -3,20 +3,52 @@ import os
 import csv
 
 # Path to File
-csvpath = os.path.join("Resources", "Budget_Data.csv")
+budgetfile = os.path.join("Resources", "Budget_Data.csv")
 
-# Lists to store data
-def print_calc(budgetdata)
-    date = str(budgetdata[0])
-    amount = int(budgetdata[1])
+total = 0
+avgchange = 0
+
+# Open the CSVFile
+with open(budgetfile) as csvfile:
+
+    # Split the data on commas    
+    csvreader = csv.reader(csvfile, delimiter=',')
     
+    # Skip Header Row
+    next(csvreader)
+
+    budgetdata = list(csvreader)
+
     # The total number of months
-    total_months = date.len()
+    total_months = len(budgetdata)
+    print(total_months)
+
+   
+    
+    for row in budgetdata:
+        # The net total amount of "Profit/Losses" over the entire period
+        total += float(row[1])
+        
+        # The average of the changes in "Profit/Losses" over the entire period
+        avgchange = average(row[1])
+
+    totalpl = int(total)
+    print (f'Total: {totalpl}')
+    print (f'Average: {avgchange}')
+
+
+
+# Define function 
+    
+
+
+   
+
 
     # The net total amount of "Profit/Losses" over the entire period
 
 
-    # The average of the changes in "Profit/Losses" over the entire period
+    
 
 
     # The greatest increase in profits (date and amount) over the entire period
@@ -27,20 +59,10 @@ def print_calc(budgetdata)
 
 
 
-# Open the CSVFile
-with open(csvpath) as csvfile:
-    budgetdata = csv.reader(csvfile, delimiter=',')
 
-    # Read the Header Row
-    data_header = next(budgetdata)
-    print(f"Bank Data: {data_header}")
-
-    def average()
-
-
-    for row in budgetdata:
-        print(row)
-
+    
+    # Print Data
+    #print(f"Total Months in Data: {total_months}")
 
 
 
