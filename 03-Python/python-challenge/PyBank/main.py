@@ -22,20 +22,21 @@ with open(budgetfile) as csvfile:
     # The total number of months
     total_months = len(budgetdata)
     print(total_months)
-
-   
     
     for row in budgetdata:
         # The net total amount of "Profit/Losses" over the entire period
         total += float(row[1])
-        
+        totalpl = int(total)
         # The average of the changes in "Profit/Losses" over the entire period
-        avgchange = average(row[1])
+    
+   
 
-    totalpl = int(total)
-    print (f'Total: {totalpl}')
-    print (f'Average: {avgchange}')
-
+print (f'Financial Analysis')
+print (f'___________________')
+print (f'Total: ${totalpl}')
+print (f'Average Change: $')
+print (f'Greatest Increase in Profit:')
+print (f'Greatest Decrease in Profits:')
 
 
 # Define function 
