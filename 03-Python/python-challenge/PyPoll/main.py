@@ -1,6 +1,7 @@
 # Modules
 import os
 import csv
+from collections import Counter
 
 # Path to File
 electionfile = os.path.join("Resources", "election_data.csv")
@@ -33,3 +34,12 @@ print (f'Winner: ')
 print (f'___________________')
 
 
+# Set Variable for Output file
+output_file = os.path.join("Analysis","Polling_Results.csv")
+
+# Open the output file
+with open(output_file, "w") as datafile:
+    writer = csv.writer(datafile)
+
+    # Print in File
+    writer.writerows()
