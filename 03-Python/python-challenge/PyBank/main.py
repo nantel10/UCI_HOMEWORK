@@ -66,7 +66,7 @@ print (f'Total Months: {total_months}')
 print (f'Total: ${str(totalpl)}')
 print (f'Average Change: ${str(round(avgchange,2))}')
 print (f'Greatest Increase in Profit:  {mostincreasedate} (${str(mostincrease)})')
-print (f'Greatest Decrease in Profits:  {mostdecreasedate}  (${str(mostdecreasedate)})')
+print (f'Greatest Decrease in Profits:  {mostdecreasedate}  (${str(mostdecrease)})')
 
 
 # Set Variable for Output file
@@ -78,6 +78,6 @@ line3 = str(f'Total Months: {total_months}')
 line4 = str(f'Total: ${str(totalpl)}')
 line5 = str(f'Average Change: ${str(round(avgchange,2))}')
 line6 =  (f'Greatest Increase in Profit:  {mostincreasedate} (${str(mostincrease)})')
-line7 =  (f'Greatest Decrease in Profits:  {mostdecreasedate}  (${str(mostdecreasedate)})')
+line7 =  (f'Greatest Decrease in Profits:  {mostdecreasedate}  (${str(mostdecrease)})')
 
 output_file.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(line1,line2,line3,line4,line5,line6,line7))
