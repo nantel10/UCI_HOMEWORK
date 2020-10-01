@@ -38,30 +38,24 @@ with open(electionfile) as csvfile:
         percent = round(percent)
         percent = "%.3f%%" % percent
         votepercent.append (percent)
-
     
+    winnercalc = max(totalvotes)
+    index = totalvotes.index(winnercalc)
+    winner = canditates[index]
 
-
-
-
+# Print Results
 print (f'Election Results')
 print (f'___________________')
-print (f'Total Votes: {totalvotes}')
+print (f'Total Votes: {str(totalvotes)}')
+print (f'___________________')
+for x in range(len(canditates)):
+    print(f'{canditates[x]}:  {str(votepercent[x])}  {str(totalvotes[x])}')
+print (f'___________________')
+print (f'Winner:  {winner}')
 print (f'___________________')
 
 
-
-print (f'___________________')
-print (f'Winner: ')
-print (f'___________________')
+# Export Txt
+output_file = open("Polling_Results.txt", "w")
 
 
-# Set Variable for Output file
-output_file = os.path.join("Analysis","Polling_Results.csv")
-
-# Open the output file
-with open(output_file, "w") as datafile:
-    writer = csv.writer(datafile)
-
-    # Print in File
-    writer.writerows()
