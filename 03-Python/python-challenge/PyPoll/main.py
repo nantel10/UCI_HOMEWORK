@@ -8,7 +8,7 @@ electionfile = os.path.join("Resources", "election_data.csv")
 
 canditates = []
 
-candidatesvote = []
+votescount = []
 
 votepercent = []
 
@@ -49,7 +49,7 @@ print (f'___________________')
 print (f'Total Votes: {str(totalvotes)}')
 print (f'___________________')
 for x in range(len(canditates)):
-    print(f'{canditates[x]}:  {str(votepercent[x])}  {str(totalvotes[x])}')
+    print(f'{canditates[x]}:  {str(votepercent[x])}  {str(votescount[x])}')
 print (f'___________________')
 print (f'Winner:  {winner}')
 print (f'___________________')
