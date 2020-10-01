@@ -22,21 +22,40 @@ with open(budgetfile) as csvfile:
     cvsheader = next(csvreader)
 
     #First Rows
-    row1 = next(csvreader)
+    rowone = next(csvreader)
     total_months += 1
-    pl += int(row[1])
+    totalpl += int(rowone[1])
+    amount = int(rowone[1])
 
+    # Go thru Data
+    for row in csvreader:
+        date.append(row[0])
 
+        change = (int(row[1])-amount)
+        pl.append(change)
+        amount = int(row[1])
 
-    # The total number of months
-    total_months = len(budgetdata)
-    print(total_months)
+        total_months += 1   
+
+        totalpl = totalpl + int(row[1])
+
     
-    for row in budgetdata:
-        # The net total amount of "Profit/Losses" over the entire period
-        total += float(row[1])
-        totalpl = int(total)
-        # The average of the changes in "Profit/Losses" over the entire period
+    mostincrease = max(pl)
+    mostincreaselocation = pl.index(mostincrease)
+    mostincreasedate = date[mostincreaselocation]
+
+
+    mostdecrease = min(pl)
+    mostdecreaselocation = pl.index(mostdecrease)
+    mostdecreasedate = date[mostdecreaselocation]
+
+
+    avgchange = sum(pl)/len(pl)
+ 
+    # The net total amount of "Profit/Losses" over the entire period
+    
+    
+    # The average of the changes in "Profit/Losses" over the entire period
     
     
     # The greatest increase in profits (date and amount) over the entire period
@@ -49,21 +68,13 @@ with open(budgetfile) as csvfile:
 
 print (f'Financial Analysis')
 print (f'___________________')
-print (f'Total: ${totalpl}')
-print (f'Average Change: $')
-print (f'Greatest Increase in Profit:')
-print (f'Greatest Decrease in Profits:')
+print (f'Total Months: ${total_months}')
+print (f'Total: ${str(totalpl)}')
+print (f'Average Change: ${str(round(avgchange,2))}')
+print (f'Greatest Increase in Profit:  {mostincreasedate} (${str(mostincrease)})')
+print (f'Greatest Decrease in Profits:  {mostdecreasedate}  (${str(mostdecreasedate)})')
 
 
 # Set Variable for Output file
-output_file = os.path.join("Analysis","Financial_Analysis.csv")
-
-# Open the output file
-with open(output_file, "w") as datafile:
-    writer = csv.writer(datafile)
-
-    # Print in File
-    writer.writerows()
-
-
+output_file = open("financialanalysis.txt", "w")
 
