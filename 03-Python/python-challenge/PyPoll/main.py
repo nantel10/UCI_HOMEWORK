@@ -1,24 +1,46 @@
 # Modules
 import os
 import csv
-from collections import Counter
+
 
 # Path to File
 electionfile = os.path.join("Resources", "election_data.csv")
 
+canditates = []
+
+candidatesvote = []
+
+votepercent = []
+
+totalvotes = 0
+
+
 # Open the CSVFile
 with open(electionfile) as csvfile:
-
-    # Split the data on commas
     csvreader = csv.reader(csvfile, delimiter=',')
-
+    
     # Skip Header Row
-    next(csvreader)
+    csv_header = next(csvreader)
 
-    electiondata = list(csvreader)
+    for row in csvreader:
+        totalvotes += 1
+    
+        if row[2] not in canditates:
+            canditates.append(row[2])
+            counter = canditates.index(row[2])
+            totalvotes.append(1)
+        else:
+            counter = canditates.index(row[2])
+            totalvotes[counter] += 1
 
-    totalvotes = len(electiondata)
-    print (f'Total Votes: {totalvotes}')
+    for votes in totalvotes:
+        percent = (votes/totalvotes) * 100
+        percent = round(percent)
+        percent = "%.3f%%" % percent
+        votepercent.append (percent)
+
+    
+
 
 
 
