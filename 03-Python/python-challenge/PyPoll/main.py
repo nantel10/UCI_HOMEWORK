@@ -57,5 +57,15 @@ print (f'___________________')
 
 # Export Txt
 output_file = open("Polling_Results.txt", "w")
-
-
+line1 = 'Election Results'
+line2 = '___________________'
+line3 = str(f'Total Votes: {str(totalvotes)}')
+line4 = str(f'___________________')
+output_file.write('{}\n{}\n{}\n{}\n'.format(line1, line2, line3, line4))
+for x in range(len(canditates)):
+    line = str(f'{canditates[x]}:  {str(votepercent[x])}  {str(votescount[x])}')
+    output_file.write('{}\n'.format(line))
+line5 = '___________________'
+line6 = str(f'Winner:  {winner}')
+line7 = '___________________'
+output_file.write('{}\n{}\n{}\n'.format(line5, line6, line7))
