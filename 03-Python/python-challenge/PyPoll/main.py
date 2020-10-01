@@ -28,19 +28,19 @@ with open(electionfile) as csvfile:
         if row[2] not in canditates:
             canditates.append(row[2])
             counter = canditates.index(row[2])
-            totalvotes.append(1)
+            votescount.append(1)
         else:
             counter = canditates.index(row[2])
-            totalvotes[counter] += 1
+            votescount[counter] += 1
 
-    for votes in totalvotes:
+    for votes in votescount:
         percent = (votes/totalvotes) * 100
         percent = round(percent)
         percent = "%.3f%%" % percent
         votepercent.append (percent)
     
-    winnercalc = max(totalvotes)
-    index = totalvotes.index(winnercalc)
+    winnercalc = max(votescount)
+    index = votescount.index(winnercalc)
     winner = canditates[index]
 
 # Print Results
