@@ -29,46 +29,40 @@ with open(budgetfile) as csvfile:
 
     # Go thru Data
     for row in csvreader:
+
+        # Tracking Dates
         date.append(row[0])
 
+
+        # Calculate Changes
         change = (int(row[1])-amount)
         pl.append(change)
         amount = int(row[1])
 
+        #Total Months
         total_months += 1   
 
+        #Total Profit/Loss
         totalpl = totalpl + int(row[1])
 
     
+    # Calulating Increases
     mostincrease = max(pl)
     mostincreaselocation = pl.index(mostincrease)
     mostincreasedate = date[mostincreaselocation]
 
-
+    #Calulating Decreases
     mostdecrease = min(pl)
     mostdecreaselocation = pl.index(mostdecrease)
     mostdecreasedate = date[mostdecreaselocation]
 
-
-    avgchange = sum(pl)/len(pl)
- 
-    # The net total amount of "Profit/Losses" over the entire period
-    
-    
-    # The average of the changes in "Profit/Losses" over the entire period
-    
-    
-    # The greatest increase in profits (date and amount) over the entire period
-
-    
-    # The greatest decrease in losses (date and amount) over the entire period
-
+    #Average of Changes in PL
+    avgchange = sum(pl)/len(pl) 
     
 # Print Data
-
 print (f'Financial Analysis')
 print (f'___________________')
-print (f'Total Months: ${total_months}')
+print (f'Total Months: {total_months}')
 print (f'Total: ${str(totalpl)}')
 print (f'Average Change: ${str(round(avgchange,2))}')
 print (f'Greatest Increase in Profit:  {mostincreasedate} (${str(mostincrease)})')
